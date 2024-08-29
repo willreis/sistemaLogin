@@ -23,7 +23,7 @@ O projeto é dividido em duas partes principais:
 
 Primeiro, clone o repositório para sua máquina local:
 
-\`\`\`bash
+\`\`\`
 git clone <URL_DO_REPOSITORIO>
 cd <NOME_DA_PASTA_DO_PROJETO>
 \`\`\`
@@ -33,13 +33,13 @@ cd <NOME_DA_PASTA_DO_PROJETO>
 1. Navegue até a pasta raiz do projeto.
 2. Instale as dependências do React:
 
-    \`\`\`bash
+    \`\`\`
     npm install
     \`\`\`
 
 3. Inicie o servidor de desenvolvimento React:
 
-    \`\`\`bash
+    \`\`\`
     npm start
     \`\`\`
 
@@ -47,19 +47,19 @@ cd <NOME_DA_PASTA_DO_PROJETO>
 
 1. Navegue até a pasta \`backend\`:
 
-    \`\`\`bash
+    \`\`\`
     cd backend
     \`\`\`
 
 2. Instale as dependências do Node.js:
 
-    \`\`\`bash
+    \`\`\`
     npm install
     \`\`\`
 
 3. Abra o arquivo \`server.js\` na pasta \`backend\` e configure os dados de conexão com o banco de dados MySQL conforme a sua configuração local. Exemplo de configuração de conexão:
 
-    \`\`\`javascript
+    \`\`\`
     const db = mysql.createConnection({
       host: 'localhost',
       user: 'root', // substitua pelo seu usuário do MySQL
@@ -74,7 +74,7 @@ cd <NOME_DA_PASTA_DO_PROJETO>
    
 2. Inicie o servidor Node.js:
 
-    \`\`\`bash
+    \`\`\`
     node server.js
     \`\`\`
 
@@ -101,7 +101,7 @@ cd <NOME_DA_PASTA_DO_PROJETO>
 
 Se você encontrar problemas relacionados a CORS (Cross-Origin Resource Sharing), certifique-se de que o middleware CORS está configurado corretamente no \`server.js\`:
 
-\`\`\`javascript
+\`\`\`
 const cors = require('cors');
 app.use(cors({
   origin: 'http://localhost:3000', // Permitir apenas essa origem
@@ -120,7 +120,7 @@ app.use(cors({
 
 Se a porta \`3001\` estiver em uso, você pode mudar a porta no \`server.js\`:
 
-\`\`\`javascript
+\`\`\`
 const port = 3002; // ou outra porta disponível
 \`\`\`
 
