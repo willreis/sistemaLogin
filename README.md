@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+Sistema de Login Simples com React.js, Node.js e MySQL
+Este projeto foi criado para fornecer uma solução básica para autenticação de usuário utilizando React.js no frontend, Node.js no backend e MySQL como banco de dados. Ele pode ser utilizado como base para projetos que necessitem de um sistema de login simples e seguro.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Estrutura do Projeto
+O projeto é dividido em duas partes principais:
 
-## Available Scripts
+Frontend: Desenvolvido com React.js.
+Backend: Desenvolvido com Node.js, usando o Express para criar APIs e MySQL para gerenciamento de banco de dados.
+Pré-requisitos
+Node.js e npm instalados
+MySQL instalado e configurado
+Editor de texto (recomendado: Visual Studio Code)
+Ferramentas de linha de comando
+Configuração do Projeto
+1. Clonar o Repositório
+Primeiro, clone o repositório para sua máquina local:
 
-In the project directory, you can run:
+bash
+Copiar código
+git clone <URL_DO_REPOSITORIO>
+cd <NOME_DA_PASTA_DO_PROJETO>
+2. Configurar o Frontend
+Navegue até a pasta raiz do projeto.
 
-### `npm start`
+Instale as dependências do React:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copiar código
+npm install
+Inicie o servidor de desenvolvimento React:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copiar código
+npm start
+3. Configurar o Backend
+Navegue até a pasta backend:
 
-### `npm test`
+bash
+Copiar código
+cd backend
+Instale as dependências do Node.js:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copiar código
+npm install
+Abra o arquivo server.js na pasta backend e configure os dados de conexão com o banco de dados MySQL conforme a sua configuração local. Exemplo de configuração de conexão:
 
-### `npm run build`
+javascript
+Copiar código
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root', // substitua pelo seu usuário do MySQL
+  password: '', // substitua pela sua senha do MySQL
+  database: 'cadastro' // substitua pelo nome do seu banco de dados
+});
+4. Iniciar o Servidor Backend
+Certifique-se de que o MySQL está rodando e que você criou uma tabela cadastro com as colunas apropriadas (id_cadastro, nome, email, cpf, endereço, telefone, senha).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Inicie o servidor Node.js:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copiar código
+node server.js
+Você verá uma mensagem de sucesso no terminal indicando que o servidor está rodando e conectado ao banco de dados MySQL:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+less
+Copiar código
+Servidor rodando em http://localhost:3001
+Conectado ao banco de dados MySQL!
+Testando o Sistema
+Abra um navegador e vá até http://localhost:3000 para acessar o frontend do sistema de login.
+Use as credenciais que estão armazenadas na tabela cadastro no banco de dados MySQL para fazer o login.
+Ajustes e Configurações
+Rotas do Backend: As rotas estão configuradas para uma tabela chamada cadastro. Se o nome da tabela ou a estrutura for diferente, ajuste as consultas SQL no arquivo server.js de acordo.
+Porta do Servidor: O servidor Node.js está configurado para rodar na porta 3001. Certifique-se de que essa porta está disponível ou ajuste a configuração no server.js para usar outra porta, caso necessário.
+Solucionando Problemas Comuns
+Problemas de CORS
+Se você encontrar problemas relacionados a CORS (Cross-Origin Resource Sharing), certifique-se de que o middleware CORS está configurado corretamente no server.js:
 
-### `npm run eject`
+javascript
+Copiar código
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000', // Permitir apenas essa origem
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+Não Consegue Conectar ao Banco de Dados MySQL
+Verifique se o MySQL está em execução.
+Verifique se as credenciais do banco de dados no server.js estão corretas.
+Certifique-se de que a tabela cadastro foi criada e tem a estrutura correta.
+Erro de Porta Já em Uso
+Se a porta 3001 estiver em uso, você pode mudar a porta no server.js:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+javascript
+Copiar código
+const port = 3002; // ou outra porta disponível
+Considerações Finais
+Este projeto é uma base simples para sistemas de autenticação. É altamente recomendável adicionar medidas de segurança adicionais em um ambiente de produção, como:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hashing de senhas com bcrypt
+Uso de tokens JWT para autenticação
+Validar entradas de usuário para evitar SQL Injection
+Aproveite e use este projeto para aprender mais sobre autenticação e desenvolvimento full-stack com React, Node.js e MySQL!
